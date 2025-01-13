@@ -130,7 +130,7 @@ public class WalletController implements WalletControllerApi {
             @ApiResponse(responseCode = "01", description = "Operation Failed."),
             @ApiResponse(responseCode = "02", description = "Operation Pending.")
     })
-    public ResponseEntity<APIResponse<List<AccountBalanceResponseDto>>> getAccountBalance(@RequestParam Long accountId) {
-        return walletService.getAccountBalance(accountId);
+    public ResponseEntity<APIResponse<List<AccountBalanceResponseDto>>> getAccountBalance(@RequestParam Long customerId) {
+        return walletService.getAccountBalance(customerId);
     }
 }

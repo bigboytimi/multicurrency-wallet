@@ -32,7 +32,7 @@ public class AccountController implements AccountControllerApi {
 
 
     @Override
-    @GetMapping(value = "/transaction-history/{accountId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/transaction-history", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
             summary = "Get Transaction History",
             description = "Fetch the transaction history for a specific account by its ID",
@@ -45,7 +45,7 @@ public class AccountController implements AccountControllerApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "00", description = "Operation Successful."),
             @ApiResponse(responseCode = "01", description = "Operation Failed.")})
-    public ResponseEntity<APIResponse<List<TransactionHistoryResponseDto>>> getTransactionHistory(@PathVariable Long accountId) {
+    public ResponseEntity<APIResponse<List<TransactionHistoryResponseDto>>> getTransactionHistory(@RequestParam Long accountId) {
         return accountService.getTransactionHistory(accountId);
     }
 }
